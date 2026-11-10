@@ -1,0 +1,27 @@
+# 환경 변수 (키·비밀번호) — 절대 커밋 금지
+.env
+.env.*
+!.env.example
+
+# Node
+node_modules/
+dist/
+build/
+.npm/
+npm-debug.log*
+yarn-error.log*
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# 데이터 원본 (용량이 커서 GitHub에 올리지 않음)
+data/raw/
+
+# OS / 에디터
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
