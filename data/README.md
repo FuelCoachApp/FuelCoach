@@ -28,3 +28,20 @@ python -m venv .venv
 .venv\Scripts\activate          # 맥: source .venv/bin/activate
 pip install -r requirements.txt
 ```
+
+## 단속카메라 넣기 (`load_cameras.py`)
+
+1. 공공데이터포털에서 **전국무인교통단속카메라표준데이터**(15028200)를 CSV로 내려받아 `raw/` 폴더에 넣어요.
+2. 먼저 미리보기로 확인해요. DB에는 아무것도 안 들어가요.
+   ```bash
+   python load_cameras.py raw/파일이름.csv --dry-run
+   ```
+   천안 지점 수, 단속구분별 개수, 예시 3개가 나와요. 컬럼을 못 찾으면 파일의 컬럼 목록을 보여 주고 멈춰요.
+3. 괜찮으면 `--dry-run` 없이 실행해서 `coaching_points` 컬렉션에 넣어요.
+   ```bash
+   python load_cameras.py raw/파일이름.csv
+   ```
+   관리번호 기준으로 덮어써서 **여러 번 돌려도 중복이 생기지 않아요.**
+
+- 저장 형식: `type: "CAMERA"`, `location: {type: "Point", coordinates: [경도, 위도]}`, `attrs`(제한속도, 단속구분, 방향 등)
+- 방지턱·졸음쉼터·급커브도 같은 형식으로 `type`만 바꿔서 넣으면 서버 길찾기 응답에 자동으로 함께 나와요.
