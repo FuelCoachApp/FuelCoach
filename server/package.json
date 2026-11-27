@@ -1,0 +1,21 @@
+{
+  "name": "soz-server",
+  "version": "0.1.0",
+  "private": true,
+  "description": "SOZ 서버 (길찾기 중계, 코칭 지점, 주행 기록)",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js"
+  },
+  "engines": {
+    "node": ">=20.12"
+  },
+  "dependencies": {
+    "@turf/helpers": "^7.4.0",
+    "@turf/nearest-point-on-line": "^7.4.0",
+    "cors": "^2.8.6",
+    "express": "^5.3.0",
+    "mongoose": "^9.13.1"
+  }
+}
