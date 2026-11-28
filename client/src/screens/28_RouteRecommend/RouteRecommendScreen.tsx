@@ -4,7 +4,8 @@ import { useState, type ReactNode } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Button, Icon } from '../../components/ui'
 import { MapView } from '../../components/map/MapView'
-import { mockGasPrices, mockRouteOptions, mockRoutePoints } from '../../mocks/data'
+import { mockGasPrices, mockRouteOptions, mockRoutePoints, mockTrip } from '../../mocks/data'
+import { useRoute } from '../../hooks/useRoute'
 import './RouteRecommendScreen.css'
 
 /** children: 위에 덮을 시트 (경로 즐겨찾기 프레임에서 사용) */
@@ -13,6 +14,8 @@ export function RouteRecommendScreen({ children }: { children?: ReactNode }) {
   const [selected, setSelected] = useState(mockRouteOptions[0].id)
   const [showGas, setShowGas] = useState(true)
   const [via, setVia] = useState<string | null>(mockRoutePoints.via)
+  // 서버 길찾기: 경로선(정체 색) + 경로 위 코칭 지점. TODO(데이터): 출발·경유·도착을 실제 값으로
+  const { route, error: routeError } = useRoute(mockTrip.origin, mockTrip.destination)
 
   // TODO(기능): 경유지 검색 화면 열기 (최대 3곳)
   const handleAddVia = () => {}
@@ -64,8 +67,8 @@ export function RouteRecommendScreen({ children }: { children?: ReactNode }) {
       </div>
 
       <div className="route__map">
-        <MapView>
-          {/* TODO(지도): 카카오 길찾기 결과의 구간별 정체 정보로 선 색을 칠하기 */}
+        <MapView path={route?.path} roads={route?.roads} traffic markers={route?.coachingPoints} fitPadding={[56, 28, 24, 28]}>
+          {/* 그림 지도용 표시물 — 실제 지도가 뜨면 숨겨지고, 위 path·roads 로 그려요 */}
           <div className="route__stage">
             <svg viewBox="0 0 390 166" width="390" height="166" aria-hidden>
               <path d="M59 175V140H189" stroke="var(--mint)" strokeWidth="5" fill="none" />
@@ -82,6 +85,7 @@ export function RouteRecommendScreen({ children }: { children?: ReactNode }) {
               </span>
             ))}
           </div>
+          {routeError && <div className="map__notice">경로를 못 불러왔어요 · {routeError}</div>}
           <button className={`route__gas-toggle ${showGas ? '' : 'route__gas-toggle--off'}`} onClick={handleToggleGas} aria-pressed={showGas}>
             <Icon name="fuel" size={17} />
             주변 주유소 {showGas ? 'ON' : 'OFF'}

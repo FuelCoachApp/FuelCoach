@@ -62,7 +62,7 @@ npm run dev
 | 34 | 운전 정보 · 계기판 경고등 | `34_DrivingInfoLights/` | `DrivingInfoLightsScreen.tsx` `DrivingInfoLightsScreen.css` | `/driving-info` |
 | 35 | 운전 정보 · 교통법규 | `35_DrivingInfoLaws/` | `DrivingInfoLawsScreen.tsx` `DrivingInfoLawsScreen.css` | `/driving-info/laws` |
 
-그 밖에 `00_ScreenList/`(화면 목록, `/`)와 `99_ComingSoon/`(없는 주소로 가면 보이는 '준비 중' 화면)가 있어요.
+그 밖에 `00_ScreenList/`(화면 목록, `/dev`)와 `99_ComingSoon/`(없는 주소로 가면 보이는 '준비 중' 화면)가 있어요.
 
 ### 같은 화면의 다른 상태인 프레임
 - **주행 13~16번**은 12번 `12_Drive/DriveScreen.tsx` 를 바탕으로 써요. 강조 프레임은 `emphasis` 값만 바꾼 것이고, 시트 프레임은 바탕 위에 시트 코드만 얹었어요.
@@ -117,3 +117,31 @@ import { Button, TextField, Card } from '../components/ui'
 
 - **상단 상태 바(9:41, 배터리)와 하단 홈 바**: 폰이 직접 그려주는 부분이라 코드에 넣지 않았어요.
 - **지도**: 카카오 지도를 연결하기 전이라 도로 모양 그림으로 대신했어요. (`components/map/MapView.tsx`)
+
+## 카카오 지도 연결
+
+지도는 `components/map/MapView.tsx` 하나에서 카카오 지도를 띄워요. 키가 없거나 불러오기에 실패하면 예전 도로 그림이 나오고, 개발 중에는 가운데에 주황색 안내가 떠요.
+
+1. [카카오 디벨로퍼스](https://developers.kakao.com) → 내 애플리케이션 → 우리 앱
+2. **앱 키**에서 **JavaScript 키**를 복사해 `client/.env` 에 넣기
+   ```
+   VITE_KAKAO_JS_KEY=복사한키
+   VITE_API_BASE_URL=http://localhost:4000
+   ```
+3. **플랫폼 → Web → 사이트 도메인**에 `http://localhost:5173` 등록 (폰으로 볼 때는 `http://내PC IP:5173` 도 등록)
+4. **카카오맵 사용 설정(활성화)** 켜기
+5. `.env` 를 바꿨으면 `npm run dev` 를 껐다 다시 켜기
+
+| 화면 | 지도에서 하는 일 |
+|---|---|
+| 메인, 안심주행 | 내 위치를 찾아 가운데로 (`myLocation`) |
+| 장소 등록 | 가운데 핀, 움직일 때마다 중심 좌표 받기 (`centerPin`, `onCenterChange`) |
+| 경로 추천 | 서버 경로를 원활·서행·정체 색으로 + 코칭 지점 (`path`, `roads`, `traffic`, `markers`) |
+| 주행 | 서버 `/api/directions` 결과로 경로선 + 단속카메라 등 코칭 지점 (`path`, `markers`) |
+| 도착 | 바탕색만 (`plain`) |
+
+- 첫 주소 `/` 는 로딩 화면(`/splash`) → 로그인 → 메인 순서로 가요. 화면 목록은 `/dev` 에 있어요.
+- 지도 안에 넣은 버튼(예: 경로 추천의 '주변 주유소')은 실제 지도에서도 그대로 보여요. 그림 지도 전용 표시물(`.map-route` `.map-arrow` `.map-dot` `.map-pin` `.route__stage`)만 숨겨져요.
+- 경로 추천·주행 화면은 지금 `mocks/data.ts` 의 `mockTrip`(천안 봉정로 테스트 구간)으로 서버에 길찾기를 요청해요. **서버(`server` 폴더)도 켜 둬야** 경로가 나와요.
+- 좌표는 서버와 똑같이 **[경도, 위도]** 순서예요.
+- GPS(내 위치)는 PC의 `localhost` 에서는 되지만, 폰에서는 HTTPS 주소에서만 동작해요.

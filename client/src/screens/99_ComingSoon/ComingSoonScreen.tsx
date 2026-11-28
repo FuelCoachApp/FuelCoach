@@ -11,7 +11,7 @@ export function ComingSoonScreen() {
         <div>
           <p className="page-title" style={{ fontSize: 20 }}>아직 디자인이 없어요</p>
           <p className="page-desc" style={{ marginTop: 6 }}>프레임을 만들면 src/screens에 폴더를 추가해 주세요.</p>
-          <Button variant="secondary" size="sm" onClick={() => navigate('/')} style={{ marginTop: 20, width: 160 }}>
+          <Button variant="secondary" size="sm" onClick={() => navigate('/dev')} style={{ marginTop: 20, width: 160 }}>
             화면 목록으로
           </Button>
         </div>

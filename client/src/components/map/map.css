@@ -74,3 +74,82 @@
   position: absolute;
   transform: translate(-50%, -50%);
 }
+
+/* ---------- 카카오 지도 ---------- */
+.map__kakao {
+  position: absolute;
+  inset: 0;
+  z-index: 0; /* 카카오 지도 안쪽 레이어가 위에 얹은 버튼을 덮지 않게 한 겹으로 묶어요 */
+  background: var(--map-bg);
+}
+/* 그림 지도 전용 표시물 — 실제 지도에서는 경로선·마커·내 위치가 대신해요 */
+.map--real .map-route,
+.map--real .map-arrow,
+.map--real .map-dot,
+.map--real .map-pin,
+.map--real .route__stage {
+  display: none;
+}
+/* 앱 색에 맞춰 지도 바탕(타일 이미지)만 어둡게 뒤집어요. 경로선·마커는 원래 색 그대로예요. */
+.map__kakao img {
+  filter: invert(1) hue-rotate(180deg) brightness(0.9) contrast(0.92);
+}
+/* 키가 없거나 불러오기 실패 (개발 중에만 보여요) */
+.map__notice {
+  position: absolute;
+  left: 50%;
+  top: calc(env(safe-area-inset-top) + 50%);
+  transform: translate(-50%, -50%);
+  max-width: 300px;
+  padding: 8px 12px;
+  border-radius: var(--r);
+  background: rgba(21, 33, 44, 0.9);
+  border: 1px solid var(--orange);
+  color: var(--orange);
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+  z-index: 1;
+}
+/* 코칭 지점 마커 */
+.map-marker {
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--bg);
+  border: 2px solid var(--mint);
+  color: var(--text);
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+.map-marker--camera { border-color: var(--sign-red); }
+.map-marker--school_zone { border-color: var(--orange); }
+.map-marker--bump,
+.map-marker--curve { border-color: var(--orange); }
+/* 내 위치 */
+.map-me {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(44, 199, 180, 0.22);
+  display: grid;
+  place-items: center;
+}
+.map-me::after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--mint);
+  border: 3px solid var(--bg);
+}
+/* 가운데 핀 (장소 등록) — 핀 끝이 지도 정중앙을 가리켜요 */
+.map-center-pin {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -100%);
+  pointer-events: none;
+  z-index: 2;
+}

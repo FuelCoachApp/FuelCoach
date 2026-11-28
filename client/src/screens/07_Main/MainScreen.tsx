@@ -28,7 +28,7 @@ export function MainScreen() {
 
   return (
     <main className="screen screen--map">
-      <MapView>
+      <MapView myLocation>
         <span className="map-dot" style={{ left: '49.5%', top: '39%' }} aria-label="내 위치" />
       </MapView>
 

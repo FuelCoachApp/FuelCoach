@@ -87,6 +87,12 @@ export const mockDepartureOptions = [
 ]
 
 /* ---------- 주행 ---------- */
+// TODO(데이터): 출발지(현재 위치)와 목적지를 실제 값으로 바꾸기
+// 지금은 서버 연결 확인용 테스트 구간이에요 — 천안 봉정로, 경로 위에 단속카메라 3개가 있어요. [경도, 위도]
+export const mockTrip = {
+  origin: [127.1404, 36.8095] as [number, number],
+  destination: [127.1433, 36.8195] as [number, number],
+}
 export const mockDestination = { name: '백석대학교', area: '천안시 동남구', arrive: '오후 2:14', remainKm: 4.8 }
 
 export type Maneuver = 'ic' | 'right'

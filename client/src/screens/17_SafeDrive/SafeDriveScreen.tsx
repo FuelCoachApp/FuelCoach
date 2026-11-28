@@ -18,7 +18,7 @@ export function SafeDriveScreen() {
 
   return (
     <main className="screen screen--map">
-      <MapView>
+      <MapView myLocation>
         <span className="map-arrow" style={{ left: '50%', bottom: 140 }}>
           <NavArrow tone="mint" />
         </span>

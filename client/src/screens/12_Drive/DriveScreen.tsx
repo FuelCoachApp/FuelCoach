@@ -10,7 +10,8 @@ import {
   CoachingCard, DriveBottomBar, HipassChip, LocateButton, MutedBar, NavArrow, NavCard, SpeedSign, useCoachVoice,
 } from '../../components/drive/DriveParts'
 import { MapView } from '../../components/map/MapView'
-import { mockDestination, mockGuidance, mockHipass, mockSpeed } from '../../mocks/data'
+import { mockDestination, mockGuidance, mockHipass, mockSpeed, mockTrip } from '../../mocks/data'
+import { useRoute } from '../../hooks/useRoute'
 import './DriveScreen.css'
 
 export type DriveScreenProps = {
@@ -28,6 +29,8 @@ export function DriveScreen({ emphasis = 'none', scene = 'ic', children }: Drive
   const guidance = turnScene ? mockGuidance.right : mockGuidance.ic
   // TODO(데이터): 음소거 상태를 전역 상태로 옮기면 프레임을 오가도 유지돼요
   const voice = useCoachVoice(true)
+  // 서버 길찾기: 경로선 + 경로 위 코칭 지점(단속카메라 등)
+  const { route, error: routeError } = useRoute(mockTrip.origin, mockTrip.destination)
 
   // TODO(기능): 현재 위치 기준으로 경로 다시 검색
   const handleReroute = () => {}
@@ -46,7 +49,7 @@ export function DriveScreen({ emphasis = 'none', scene = 'ic', children }: Drive
 
   return (
     <main className="screen screen--map">
-      <MapView emphasis={emphasis}>
+      <MapView emphasis={emphasis} path={route?.path} markers={route?.coachingPoints}>
         {/* 경로 선 + 내 차 화살표 */}
         <span className="map-route" style={{ left: '50%', top: top(170), bottom: 200 }} />
         <span className="map-arrow" style={{ left: '50%', bottom: 132 }}>
@@ -81,6 +84,12 @@ export function DriveScreen({ emphasis = 'none', scene = 'ic', children }: Drive
       )}
 
       <LocateButton onClick={handleLocate} style={{ right: 10, bottom: 'calc(84px + env(safe-area-inset-bottom))' }} />
+
+      {routeError && (
+        <div className="map__notice" style={{ top: 'auto', bottom: 'calc(150px + env(safe-area-inset-bottom))', transform: 'translateX(-50%)', zIndex: 30 }}>
+          경로를 못 불러왔어요 · {routeError}
+        </div>
+      )}
 
       <DriveBottomBar
         destName={mockDestination.name}

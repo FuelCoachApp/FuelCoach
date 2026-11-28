@@ -24,6 +24,9 @@ function withRo(word: string) {
 export function PlaceRegisterScreen() {
   const navigate = useNavigate()
   const [name, setName] = useState<PlaceName>('home')
+  // 지도 가운데 좌표 [경도, 위도] — 저장할 때 이 값을 서버로 보내요 (places.location, coordSource: 'pin')
+  const [center, setCenter] = useState<[number, number] | null>(null)
+  void center
   const place = mockPlaceSearchResult
   const nameLabel = PLACE_NAMES.find((n) => n.value === name)!.label
 
@@ -35,7 +38,7 @@ export function PlaceRegisterScreen() {
 
   return (
     <main className="screen screen--map">
-      <MapView parks>
+      <MapView parks centerPin onCenterChange={setCenter}>
         <span className="map-pin" style={{ left: '50%', top: '40%' }}>
           <Icon name="pin" size={40} strokeWidth={2.2} className="map-pin__icon" />
         </span>

@@ -1,5 +1,5 @@
 // 주소(경로) ↔ 화면 연결표 — 와이어프레임 1개 = 폴더 1개 = 주소 1개
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { ScreenListScreen } from './screens/00_ScreenList/ScreenListScreen'
 import { ComingSoonScreen } from './screens/99_ComingSoon/ComingSoonScreen'
 import { SignupScreen } from './screens/01_Signup/SignupScreen'
@@ -43,8 +43,10 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* 개발용 시작 페이지 — 출시 때 '/login' 등으로 바꾸기 */}
-        <Route path="/" element={<ScreenListScreen />} />
+        {/* 앱 시작: 로딩 화면 → 로그인 → 메인 */}
+        <Route path="/" element={<Navigate to="/splash" replace />} />
+        {/* 개발용 화면 목록 */}
+        <Route path="/dev" element={<ScreenListScreen />} />
 
         {/* 시작 · 계정 */}
         <Route path="/splash" element={<SplashScreen />} />
