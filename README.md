@@ -19,8 +19,8 @@
 
 | 구분 | 사용 기술 |
 |---|---|
-| 프론트 | PWA (프레임워크 결정 예정) + 카카오 지도 JavaScript API |
-| 서버 | Node.js (프레임워크 결정 예정) |
+| 프론트 | React + Vite (TypeScript) + 카카오 지도 JavaScript API |
+| 서버 | Node.js + Express 5 |
 | DB | MongoDB Atlas |
 | 데이터 처리 | Python (rasterio, geopandas, pymongo) |
 | 외부 API | 카카오모빌리티 길찾기 API |
@@ -71,7 +71,21 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-client, server 실행 방법은 프레임워크가 정해지면 이 문서에 추가합니다.
+### 실행하기 (터미널 2개)
+
+```bash
+# 서버 (http://localhost:4000)
+cd server
+npm install      # 처음 한 번, 그리고 package.json 이 바뀌었을 때
+npm run dev
+
+# 화면 (http://localhost:5173)
+cd client
+npm install
+npm run dev
+```
+
+`.env` 를 바꿨으면 `Ctrl + C` 로 끄고 `npm run dev` 를 다시 켜야 반영돼요.
 
 ## 환경 변수
 
@@ -79,21 +93,35 @@ client, server 실행 방법은 프레임워크가 정해지면 이 문서에 �
 |---|---|---|
 | `server/.env` | `MONGODB_URI` | MongoDB Atlas 연결 문자열 |
 | `server/.env` | `KAKAO_REST_API_KEY` | 카카오 REST API 키 (길찾기용, **서버에서만 사용**) |
-| `client/.env` | `KAKAO_JS_KEY` | 카카오 JavaScript 키 (지도 표시용) |
-| `client/.env` | `API_BASE_URL` | 서버 주소 |
+| `client/.env` | `VITE_KAKAO_JS_KEY` | 카카오 JavaScript 키 (지도 표시용). Vite는 `VITE_` 로 시작하는 이름만 읽어요 |
+| `client/.env` | `VITE_API_BASE_URL` | 서버 주소 (`http://localhost:4000`) |
 | `data/.env` | `MONGODB_URI` | 전처리 결과를 DB에 저장할 때 사용 |
 
 ## 협업 규칙
 
-- **main 브랜치에 직접 push 하지 않기** → 브랜치를 만들고 Pull Request로 합치기
-- 브랜치 이름: `feature/기능이름`, `fix/버그이름` (예: `feature/voice-coaching`)
+- **main 브랜치에 바로 push** 해요. (Pull Request·승인 절차 없음)
+- 처음 한 번만 설정 (pull 할 때 방식 정하기)
+  ```bash
+  git config --global pull.rebase false
+  ```
+- 작업 순서
+  ```bash
+  git pull                          # 1. 작업 시작 전에 항상 최신 받기
+  # 2. 작업
+  git add .
+  git status                        # 3. 목록에 .env, node_modules 가 없는지 꼭 확인!
+  git commit -m "feat: 작업 내용"
+  git push
+  ```
+- push 가 `rejected ... fetch first` 로 거절되면 → `git pull` 한 번 하고 다시 `git push`
+- `git pull` 에서 `CONFLICT`(충돌)가 나면 혼자 고치지 말고 단톡방에 알리기
 - 커밋 메시지 앞머리
   - `feat:` 새 기능
   - `fix:` 버그 수정
   - `docs:` 문서 수정
   - `refactor:` 동작은 같고 코드만 정리
   - `chore:` 설정, 패키지 등 기타
-- Pull Request는 **팀원 1명 이상 확인 후** 합치기
+- 지도 파일(`client/src/components/map/`)은 지도 담당만 수정하기 — 화면에서는 `<MapView path={...} markers={...}>` 처럼 값만 넘기기
 
 ## 보안 주의
 
