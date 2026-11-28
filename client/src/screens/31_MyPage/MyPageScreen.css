@@ -1,0 +1,157 @@
+.mypage .screen__body {
+  padding-bottom: 20px;
+}
+.mp-mint {
+  color: var(--mint);
+}
+.mp-card {
+  margin-top: 8px;
+  border-radius: var(--r-xl);
+  background: var(--surface);
+}
+.mp-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+}
+.mp-avatar {
+  flex: none;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--bg);
+  font-size: 20px;
+  font-weight: 900;
+  display: grid;
+  place-items: center;
+}
+.mp-profile__name {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 17px;
+  font-weight: 900;
+}
+.mp-profile p {
+  font-size: 12.5px;
+  color: var(--text-2);
+}
+.mp-edit {
+  height: 22px;
+  padding: 0 7px;
+  border-radius: 6px;
+  border: 1px solid #2f5a4c;
+  color: var(--mint);
+  font-size: 11px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+.mp-stats {
+  display: flex;
+  margin-top: 12px;
+  padding: 16px 16px 15px;
+  border-radius: var(--r-xl);
+  background: var(--green-card);
+}
+.mp-stats > div {
+  flex: 1;
+}
+.mp-stats span {
+  display: block;
+  font-size: 11px;
+  color: var(--text-2);
+}
+.mp-stats b {
+  font-size: 17px;
+  font-weight: 900;
+}
+.mp-car {
+  margin-top: 12px;
+  padding: 14px 16px 4px;
+}
+.mp-car__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+.mp-car__head b {
+  font-size: 15px;
+  font-weight: 900;
+}
+.mp-car__head button {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--mint);
+}
+.mp-car dl > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 37px;
+  font-size: 13px;
+}
+.mp-car dl > div + div {
+  border-top: 1px solid var(--line);
+}
+.mp-car dt {
+  color: var(--text-2);
+}
+.mp-car dd {
+  font-weight: 800;
+}
+.mp-menu {
+  margin-top: 8px;
+  padding: 0;
+  overflow: hidden;
+}
+.mp-menu button {
+  width: 100%;
+  height: 51px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px;
+  font-size: 14.5px;
+  font-weight: 800;
+  text-align: left;
+}
+.mp-menu button + button {
+  border-top: 1px solid var(--line);
+}
+.mp-menu button > span {
+  flex: 1;
+}
+.mp-menu button > svg:last-child {
+  color: var(--text-2);
+}
+.mp-fuel {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  padding: 14px 16px;
+  text-align: left;
+}
+.mp-fuel span {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 700;
+}
+.mp-fuel b {
+  font-size: 15px;
+  font-weight: 900;
+}
+.mp-fuel p {
+  font-size: 11.5px;
+  color: var(--text-2);
+}
+.mp-fuel strong {
+  font-size: 13px;
+  font-weight: 800;
+}

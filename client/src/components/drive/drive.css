@@ -1,0 +1,341 @@
+/* ---------------- 길안내 카드 ---------------- */
+.nav-card {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  top: calc(env(safe-area-inset-top) + 4px);
+  z-index: 10;
+  padding: 10px 14px 10px;
+  border-radius: var(--r-lg);
+  background: rgba(30, 45, 58, 0.96);
+  border: 2px solid var(--lavender);
+}
+.nav-card--right {
+  border-color: #3e7d5a;
+}
+.nav-card__main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nav-card__tile {
+  flex: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: var(--lavender);
+}
+.nav-card--right .nav-card__tile {
+  background: #3e7d5a;
+}
+.nav-card__ic {
+  font-size: 18px;
+  font-weight: 800;
+}
+.nav-card__text {
+  flex: 1;
+  min-width: 0;
+}
+.nav-card__title {
+  font-size: 18px;
+  font-weight: 800;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.nav-card--right .nav-card__title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-2);
+}
+.nav-card__toll {
+  margin-left: 6px;
+  font-size: 13px;
+  font-weight: 800;
+}
+.nav-card__distance {
+  font-size: 26px;
+  font-weight: 900;
+  line-height: 1.15;
+}
+.nav-card__next {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 8px;
+  font-size: 11px;
+  color: var(--text-3);
+}
+.nav-card__next b {
+  font-size: 13px;
+  color: var(--text);
+}
+.nav-card__lanes {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
+.lane {
+  width: 33px;
+  height: 33px;
+  border-radius: 7px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: #5b6573;
+}
+.lane--on {
+  background: var(--lavender);
+}
+.nav-card--right .lane--on {
+  background: #3e7d5a;
+}
+
+/* ---------------- 코칭 카드 ---------------- */
+.coach-card {
+  position: absolute;
+  left: 10px;
+  top: calc(env(safe-area-inset-top) + 132px);
+  z-index: 11;
+  width: min(246px, calc(100% - 20px));
+  padding: 8px 12px 10px;
+  border-radius: var(--r);
+  background: rgba(30, 45, 58, 0.96);
+  border: 1px solid var(--mint);
+  color: var(--mint);
+  touch-action: none;
+  user-select: none;
+}
+.coach-card__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+}
+.coach-card__badge {
+  height: 16px;
+  padding: 0 6px;
+  border-radius: 5px;
+  background: var(--mint);
+  color: var(--on-mint);
+  font-size: 9px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+}
+.coach-card__distance {
+  margin-top: 4px;
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1.1;
+}
+.coach-card__distance small {
+  margin-left: 4px;
+  font-size: 13px;
+  font-weight: 800;
+}
+.coach-card__message {
+  margin-top: 2px;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+/* ---------------- 코칭 알림(정리표) ---------------- */
+.coach-alert {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border-radius: var(--r-lg);
+  border: 1.5px solid var(--mint);
+  background: var(--bg);
+  color: var(--mint);
+}
+.coach-alert__icon {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: var(--mint);
+  color: var(--on-mint);
+}
+.coach-alert__value {
+  font-size: 26px;
+  font-weight: 900;
+  line-height: 1.15;
+}
+.coach-alert__value small {
+  margin-left: 5px;
+  font-size: 14px;
+  font-weight: 800;
+}
+.coach-alert__message {
+  font-size: 16px;
+  font-weight: 800;
+}
+.start-hint {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: var(--r);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.45;
+}
+.start-hint svg {
+  flex: none;
+  color: var(--mint);
+}
+.bump-chip,
+.muted-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 24px;
+  border: 1.5px solid var(--mint);
+  background: var(--bg);
+  font-size: 15px;
+  font-weight: 800;
+}
+.bump-chip svg {
+  color: var(--mint);
+}
+.muted-bar {
+  gap: 8px;
+  padding: 0 14px;
+  border-radius: var(--r);
+  border-color: var(--line);
+  background: var(--surface);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-2);
+  touch-action: none;
+}
+.muted-bar > span {
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.muted-bar__action {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: var(--mint);
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+/* ---------------- 속도 ---------------- */
+.speed {
+  position: absolute;
+  left: 12px;
+  z-index: 9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.speed__limit {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: #fff;
+  border: 6px solid var(--sign-red);
+  color: var(--bg);
+  font-size: 24px;
+  font-weight: 900;
+  display: grid;
+  place-items: center;
+}
+.speed__current {
+  font-size: 22px;
+  font-weight: 900;
+}
+.speed__current--lg {
+  font-size: 28px;
+}
+
+/* ---------------- 하이패스 ---------------- */
+.hipass {
+  position: absolute;
+  z-index: 9;
+  padding: 4px 9px;
+  border-radius: 8px;
+  border: 1px solid var(--lavender);
+  background: rgba(21, 33, 44, 0.95);
+  font-size: 12.5px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.hipass b {
+  color: var(--lavender);
+}
+
+/* ---------------- 하단 바 ---------------- */
+.drive-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 12;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px calc(14px + env(safe-area-inset-bottom));
+  background: var(--surface);
+}
+.drive-bar__btn {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  color: var(--text);
+}
+.drive-bar__center {
+  text-align: center;
+}
+.drive-bar__dest {
+  font-size: 11px;
+  font-weight: 800;
+}
+.drive-bar__dest small {
+  font-size: 9px;
+  font-weight: 400;
+  color: var(--text-2);
+}
+.drive-bar__eta {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+.drive-bar__eta span {
+  margin-left: 14px;
+}
+
+.locate-btn {
+  position: absolute;
+  z-index: 9;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  color: var(--mint);
+  display: grid;
+  place-items: center;
+}

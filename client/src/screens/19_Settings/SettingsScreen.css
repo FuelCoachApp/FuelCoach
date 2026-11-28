@@ -1,0 +1,11 @@
+/* 설정 — 그룹 카드, 슬라이더 줄 */
+.settings-card {
+  padding: 2px 16px;
+}
+.setting-row--slider {
+  display: block;
+  padding: 2px 0 4px;
+}
+.settings-list .list-row__title {
+  font-weight: 500;
+}

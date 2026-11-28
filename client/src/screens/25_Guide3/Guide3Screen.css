@@ -1,0 +1,82 @@
+.g3-label {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--text-2);
+}
+.g3-cards {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  top: 49px;
+  bottom: 20px;
+  display: flex;
+  gap: 13px;
+}
+.g3-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 18px 8px 18px;
+  border-radius: 14px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  text-align: center;
+}
+.g3-card--good {
+  border: 2px solid var(--mint);
+}
+.g3-gear {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 25px;
+  font-weight: 900;
+  background: var(--muted);
+  color: var(--text);
+}
+.g3-card--good .g3-gear {
+  background: var(--mint);
+  color: var(--on-mint);
+}
+.g3-card__name {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 800;
+}
+.g3-card__result {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.g3-card__result span {
+  font-size: 12.5px;
+  color: var(--text-2);
+}
+.g3-card__result strong {
+  font-size: 30px;
+  font-weight: 900;
+  line-height: 1.25;
+  color: var(--mint);
+}
+.g3-card--bad .g3-card__result strong {
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--orange);
+}
+.g3-card__result em {
+  font-style: normal;
+  font-size: 12.5px;
+  font-weight: 800;
+  color: var(--mint);
+}
+.g3-card--bad .g3-card__result em {
+  color: var(--orange);
+}

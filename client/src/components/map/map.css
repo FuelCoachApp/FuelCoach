@@ -1,0 +1,76 @@
+.map {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.map__svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+/* 주행 강조: 깜빡임 대신 천천히 두 번 밝아진 뒤 유지 */
+.map__emphasis {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  animation: emphasis-pulse 2.4s ease-in-out forwards;
+}
+.map__emphasis--coach {
+  background: rgba(34, 140, 90, 0.55);
+}
+.map__emphasis--guide {
+  background: rgba(150, 34, 52, 0.55);
+}
+@keyframes emphasis-pulse {
+  0% { opacity: 0; }
+  25% { opacity: 1; }
+  50% { opacity: 0.55; }
+  75% { opacity: 1; }
+  100% { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .map__emphasis { animation: none; }
+}
+.map__dim {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 16, 22, 0.55);
+  pointer-events: none;
+  z-index: 25;
+}
+
+/* 지도 위 표시물 */
+.map-dot {
+  position: absolute;
+  width: 68px;
+  height: 68px;
+  margin: -34px 0 0 -34px;
+  border-radius: 50%;
+  background: rgba(44, 199, 180, 0.22);
+  display: grid;
+  place-items: center;
+}
+.map-dot::after {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--mint);
+  border: 3px solid var(--bg);
+}
+.map-pin {
+  position: absolute;
+  transform: translate(-50%, -100%);
+}
+.map-route {
+  position: absolute;
+  width: 8px;
+  margin-left: -4px;
+  border-radius: 4px;
+  background: var(--mint);
+}
+.map-arrow {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}

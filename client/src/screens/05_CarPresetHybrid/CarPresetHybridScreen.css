@@ -1,0 +1,17 @@
+/* 하이브리드 유종 선택 시트 */
+.choice-list {
+  margin-top: 16px;
+}
+.choice-list__item {
+  width: 100%;
+  height: 54px;
+  font-size: 16px;
+  font-weight: 800;
+  border-bottom: 1px solid var(--line);
+}
+.choice-list__item--on {
+  border-radius: 14px;
+  background: var(--mint);
+  color: var(--on-mint);
+  border-bottom-color: transparent;
+}

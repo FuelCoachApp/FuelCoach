@@ -1,0 +1,19 @@
+/* 다른 경로 시트 — 경로 카드 */
+.route-option {
+  padding: 10px 14px;
+}
+.route-option--on {
+  border: 2px solid var(--mint);
+  background: var(--bg);
+}
+.route-option__name {
+  font-size: 12px;
+  font-weight: 700;
+}
+.route-option--on .route-option__name {
+  color: var(--mint);
+}
+.route-option__arrive {
+  font-size: 19px;
+  font-weight: 900;
+}

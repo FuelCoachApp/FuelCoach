@@ -1,0 +1,15 @@
+/* 장소 등록 — 장소 정보 */
+.place-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 6px;
+}
+.place-head b {
+  font-size: 18px;
+  font-weight: 900;
+}
+.place-head p {
+  font-size: 13px;
+  color: var(--text-2);
+}

@@ -1,0 +1,244 @@
+.report .screen__body {
+  padding-bottom: 24px;
+}
+.rp-mint {
+  color: var(--mint);
+}
+.rp-pill {
+  height: 20px;
+  padding: 0 7px;
+  border-radius: 6px;
+  background: #174f4d;
+  font-size: 11px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+.rp-eco {
+  margin-top: 14px;
+  padding: 16px 16px 14px;
+  border-radius: var(--r-xl);
+  background: var(--green-card);
+}
+.rp-eco__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--text-2);
+}
+.rp-eco__head .rp-pill {
+  color: var(--text);
+}
+.rp-eco__score {
+  margin-top: 4px;
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 1.1;
+}
+.rp-eco__score small {
+  margin-left: 6px;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-2);
+}
+.rp-eco__events {
+  margin-top: 4px;
+  font-size: 11.5px;
+  color: var(--text-2);
+}
+.rp-tiles {
+  display: flex;
+  gap: 8px;
+  margin-top: 26px;
+}
+.rp-tile {
+  flex: 1;
+  padding: 12px 13px;
+  border-radius: var(--r-lg);
+  background: var(--surface);
+}
+.rp-tile span,
+.rp-tile p {
+  font-size: 11.5px;
+  color: var(--text-2);
+}
+.rp-tile p {
+  font-size: 10.5px;
+}
+.rp-tile b {
+  display: block;
+  margin: 2px 0;
+  font-size: 21px;
+  font-weight: 900;
+}
+.rp-tile small {
+  margin-left: 4px;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-2);
+}
+.rp-total {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+  padding: 12px 16px;
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  text-align: left;
+  color: var(--text-2);
+}
+.rp-total span {
+  display: block;
+  font-size: 12px;
+}
+.rp-total b {
+  font-size: 15px;
+  font-weight: 900;
+  color: var(--text);
+}
+.rp-total em {
+  font-style: normal;
+  color: var(--mint);
+}
+.rp-month-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
+  margin: 40px 0 12px;
+}
+.rp-month-nav b {
+  font-size: 18px;
+  font-weight: 900;
+}
+.rp-month-nav button:disabled {
+  color: var(--muted);
+}
+.rp-month {
+  padding: 16px 18px 14px;
+  border-radius: var(--r-xl);
+  background: var(--green-card);
+}
+.rp-month > span {
+  font-size: 12.5px;
+  color: var(--text-2);
+}
+.rp-month > b {
+  display: block;
+  margin-top: 4px;
+  font-size: 28px;
+  font-weight: 900;
+}
+.rp-month > b small {
+  margin-left: 2px;
+  font-size: 15px;
+}
+.rp-month__foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11.5px;
+  color: var(--text-2);
+}
+.rp-month__foot .rp-pill {
+  height: 26px;
+  padding: 0 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  color: var(--text);
+}
+.rp-cal {
+  margin-top: 10px;
+  padding: 12px 10px 18px;
+  border-radius: var(--r-xl);
+  background: var(--surface);
+}
+.rp-cal__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  row-gap: 0;
+  column-gap: 0;
+  text-align: center;
+}
+.rp-cal__wd {
+  height: 26px;
+  font-size: 11px;
+  color: var(--text-2);
+}
+.rp-cal__wd--sun {
+  color: #f0857d;
+}
+.rp-day {
+  height: 44px;
+  margin: 0 1px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #d6dee4;
+}
+.rp-day:disabled {
+  cursor: default;
+}
+.rp-day small {
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--mint);
+  line-height: 1.6;
+}
+.rp-day--drive {
+  background: var(--green-card);
+}
+.rp-day--on {
+  background: var(--mint);
+  color: var(--on-mint);
+}
+.rp-day--on small {
+  color: var(--on-mint);
+}
+.rp-day--future {
+  color: #4a5c6b;
+}
+.rp-day__today {
+  color: var(--orange) !important;
+}
+.rp-trips {
+  margin-top: 18px;
+  padding: 0 16px;
+  border-radius: var(--r-xl);
+  background: var(--surface);
+}
+.rp-trip {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+  text-align: left;
+}
+.rp-trip + .rp-trip {
+  border-top: 1px solid var(--line);
+}
+.rp-trip b {
+  display: block;
+  font-size: 15px;
+  font-weight: 900;
+}
+.rp-trip span {
+  font-size: 11.5px;
+  color: var(--text-2);
+}
+.rp-trip em {
+  font-style: normal;
+  font-size: 13.5px;
+  font-weight: 900;
+  color: var(--mint);
+}

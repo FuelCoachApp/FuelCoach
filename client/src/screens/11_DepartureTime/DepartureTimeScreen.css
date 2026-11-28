@@ -1,0 +1,47 @@
+/* 출발 시간 추천 — 막대그래프, 시간별 선택 줄 */
+.bars {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  height: 148px;
+  margin-top: 18px;
+  padding: 10px 12px 12px;
+  border-radius: var(--r);
+  background: var(--bg);
+}
+.bars__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--text-2);
+}
+.bars__bar {
+  width: 34px;
+  border-radius: 6px;
+  background: var(--muted);
+}
+.bars__bar--on {
+  background: var(--mint);
+}
+.depart-row {
+  display: grid;
+  grid-template-columns: 92px 1fr auto;
+  align-items: center;
+}
+.depart-row b {
+  font-size: 15px;
+  font-weight: 900;
+}
+.depart-row small {
+  display: block;
+  margin-top: 2px;
+  font-size: 11.5px;
+  color: var(--text-2);
+}
+.depart-row__saving {
+  font-size: 11.5px;
+  font-weight: 800;
+  color: var(--mint);
+}

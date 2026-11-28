@@ -1,0 +1,50 @@
+/* 사용 가이드 공통 틀 */
+.guide-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  font-size: 14px;
+}
+.guide-head button {
+  font-size: 14px;
+  color: var(--text-2);
+}
+.guide-art {
+  position: relative;
+  height: 336px;
+  border-radius: var(--r-xl);
+  background: var(--surface);
+  overflow: hidden;
+}
+.guide-title {
+  margin-top: 34px;
+  font-size: 26px;
+  font-weight: 900;
+  line-height: 1.32;
+  white-space: pre-line;
+  padding-left: 4px;
+}
+.guide-body {
+  margin-top: 12px;
+  padding-left: 4px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-2);
+}
+.guide-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.guide-dots__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--muted);
+}
+.guide-dots__dot--on {
+  width: 20px;
+  background: var(--mint);
+}

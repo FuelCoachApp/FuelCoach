@@ -1,0 +1,21 @@
+/* 아이디 찾기 — 결과 카드 */
+.result-card {
+  margin-top: 26px;
+  padding: 22px 20px;
+  border-radius: var(--r-lg);
+  background: var(--green-card);
+}
+.result-card p {
+  font-size: 14px;
+  color: var(--text-2);
+}
+.result-card strong {
+  display: block;
+  margin: 8px 0 6px;
+  font-size: 28px;
+  font-weight: 900;
+}
+.result-card span {
+  font-size: 12.5px;
+  color: var(--text-2);
+}

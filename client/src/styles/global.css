@@ -1,0 +1,127 @@
+/* =========================================================
+   디자인 토큰 — Figma 와이어프레임 색상·크기
+   색을 바꿀 때는 이 파일의 변수만 고치면 전체에 반영돼요.
+   ========================================================= */
+:root {
+  /* 배경·표면 */
+  --bg: #15212c;
+  --surface: #1e2d3a;
+  --surface-sheet: #1e2d3a;
+  --line: #2e3e4c;
+  --muted: #3a4c5c;
+
+  /* 글자 */
+  --text: #f5f4ee;
+  --text-2: #b9c6cf;
+  --text-3: #8fa0ad;
+
+  /* 브랜드·역할 색 */
+  --mint: #2cc7b4;
+  --on-mint: #15212c;
+  --mint-tint: rgba(44, 199, 180, 0.14);
+  --green-card: #1f3a30; /* 결과 카드, 선택된 카드 배경 */
+  --teal-card: #1f6b63; /* 평균 연비 강조 카드 */
+  --lavender: #a5b4fc; /* 길안내(IC·하이패스) */
+  --orange: #f0a85c; /* 주의·확인 필요 */
+  --blue: #5ab0f5; /* 도착 */
+  --danger: #ff8a80;
+  --red: #f0605d; /* 정체 · 바로 멈추고 점검 */
+  --amber: #f2c14e; /* 서행 · 빨리 점검 · 범칙금 */
+  --pin-blue: #5ab8ff; /* 목적지 핀 */
+  --sign-red: #d9443a; /* 제한속도 표지판 */
+
+  /* 지도 자리(카카오 지도 연결 전 임시) */
+  --map-bg: #263644;
+  --map-road: #2f4253;
+  --map-park: #22402f;
+
+  /* 모서리 */
+  --r-sm: 8px;
+  --r: 12px;
+  --r-lg: 16px;
+  --r-xl: 24px;
+
+  /* 레이아웃 */
+  --content-max: 430px;
+  --page-x: 20px;
+  --tabbar-h: 84px;
+
+  --font: 'Noto Sans KR', 'Noto Sans CJK KR', -apple-system, BlinkMacSystemFont,
+    'Apple SD Gothic Neo', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  background: #0e161e; /* 태블릿·PC에서 양옆 배경 */
+  color: var(--text);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+input {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+/* 접근성: 화면에는 안 보이고 스크린리더만 읽는 글자 */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* 공통 텍스트 */
+.page-title {
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: -0.3px;
+}
+.page-desc {
+  margin-top: 6px;
+  font-size: 14px;
+  color: var(--text-2);
+}
+.section-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--mint);
+  margin: 22px 4px 8px;
+}
+.field-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.hint {
+  font-size: 12px;
+  color: var(--text-3);
+  line-height: 1.5;
+}

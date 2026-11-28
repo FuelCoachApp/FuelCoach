@@ -1,0 +1,153 @@
+/* 여러 화면이 같이 쓰는 스타일
+   지도 화면 틀, 지도 위 검색창·사각 버튼, 선택 카드(차량·출발 시간·경로), 라디오, 설정 줄, 별 타일 */
+.map-top {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: calc(env(safe-area-inset-top) + 8px);
+  z-index: 10;
+  display: flex;
+  gap: 8px;
+}
+.map-search {
+  flex: 1;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+  border-radius: var(--r);
+  background: var(--surface);
+  font-size: 15px;
+  color: var(--text-3);
+  text-align: left;
+}
+.map-search--active {
+  border: 1.5px solid var(--mint);
+  color: var(--text);
+}
+.square-btn {
+  flex: none;
+  width: 48px;
+  height: 50px;
+  border-radius: var(--r);
+  display: grid;
+  place-items: center;
+  background: var(--surface);
+}
+.square-btn--outline {
+  border: 2px solid var(--mint);
+  color: var(--mint);
+  background: var(--bg);
+}
+.square-btn--mint {
+  background: var(--mint);
+  color: var(--on-mint);
+}
+.square-btn--off {
+  background: var(--surface);
+  color: var(--text-3);
+}
+.star-tile {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--bg);
+  color: #f5c542;
+  display: grid;
+  place-items: center;
+}
+.option-card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--line);
+  background: var(--bg);
+  text-align: left;
+}
+.option-card + .option-card {
+  margin-top: 10px;
+}
+.option-card--on {
+  border: 1.5px solid var(--mint);
+  background: var(--green-card);
+}
+.option-card--dashed {
+  border-style: dashed;
+  background: transparent;
+}
+.option-card__body {
+  flex: 1;
+  min-width: 0;
+}
+.option-card__title {
+  font-size: 16px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.option-card__sub {
+  margin-top: 3px;
+  font-size: 12.5px;
+  color: var(--text-2);
+}
+.option-card__meta {
+  margin-top: 2px;
+  font-size: 11.5px;
+  color: var(--text-3);
+}
+.radio {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid var(--text-3);
+  display: grid;
+  place-items: center;
+}
+.radio--on {
+  border-color: var(--mint);
+}
+.radio--on::after {
+  content: '';
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--mint);
+}
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 0;
+}
+.setting-row + .setting-row,
+.settings-card > * + * {
+  border-top: 1px solid var(--line);
+}
+.setting-row__title {
+  font-size: 15px;
+  font-weight: 700;
+}
+.setting-row__sub {
+  margin-top: 2px;
+  font-size: 12px;
+  color: var(--text-2);
+}
+.screen--map {
+  height: 100dvh;
+  min-height: 0;
+  padding-top: 0;
+}
+.map-pin__icon {
+  color: var(--mint);
+}
+.map-pin {
+  z-index: 2;
+}

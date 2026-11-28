@@ -1,0 +1,77 @@
+.search {
+  padding: 0 var(--page-x) 24px;
+}
+.search__bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 10px 0 14px -10px;
+}
+.search__back {
+  width: 34px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+}
+.search__field {
+  flex: 1;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 12px 0 14px;
+  border-radius: 14px;
+  border: 1.5px solid var(--mint);
+  background: var(--surface);
+}
+.search__field input {
+  flex: 1;
+  min-width: 0;
+  background: none;
+  border: 0;
+  outline: none;
+  color: var(--text);
+  font-size: 16px;
+}
+.search__clear {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--muted);
+}
+.search__section {
+  margin: 12px 0 4px;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--text);
+}
+.search-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0 10px 2px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  color: var(--text-2);
+}
+.search-row__body {
+  flex: 1;
+  min-width: 0;
+}
+.search-row__body b {
+  display: block;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text);
+}
+.search-row__body mark {
+  background: none;
+  color: var(--mint);
+}
+.search-row__body span {
+  font-size: 12.5px;
+  color: var(--text-2);
+}
